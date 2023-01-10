@@ -1,0 +1,10 @@
+*.log
+__pycache__/
+*.pyc
+.vscode/
+.pytest_chache/
+__Snapshoot_errors__/
+ping_output.txt
+report/
+__Reports__/
+archive/
