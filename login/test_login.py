@@ -28,6 +28,8 @@ def test_google():
     chrome_service = ChromeService(ChromeDriverManager().install())
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--incognito")
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument('--disable-gpu')
     driver = webdriver.Chrome(service = chrome_service, options=chrome_options) # OK
     driver.set_window_position(5000, 18000)
     driver.maximize_window()
