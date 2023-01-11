@@ -46,7 +46,7 @@ def test_google():
     chrome_options.add_argument('--disable-gpu')'''
     print('aaaaaaaaaaaaaaaaaaa')
     #driver = webdriver.Chrome(service = chrome_service, options=chrome_options) # OK
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(service = ChromeService(ChromeDriverManager().install()))
     print('bbbbbbbbbbbbb')
     driver.set_window_position(5000, 18000)
     driver.maximize_window()
