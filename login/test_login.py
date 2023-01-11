@@ -9,6 +9,7 @@ from .login import enter_login_page
 from selenium import webdriver
 
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.chrome import ChromeDriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.core.utils import ChromeType
 
@@ -46,7 +47,7 @@ def test_google():
     chrome_options.add_argument('--disable-gpu')'''
     print('aaaaaaaaaaaaaaaaaaa')
     #driver = webdriver.Chrome(service = chrome_service, options=chrome_options) # OK
-    driver = webdriver.Chrome(service = chrome_service, options=chrome_options)
+    driver = ChromeDriver()
     print('bbbbbbbbbbbbb')
     driver.set_window_position(5000, 18000)
     driver.maximize_window()
