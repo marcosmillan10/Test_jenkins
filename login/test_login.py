@@ -27,13 +27,25 @@ def test_google():
     print('\nINIT')
     chrome_service = ChromeService(ChromeDriverManager().install())
     chrome_options = webdriver.ChromeOptions()
+    ''';--test-type;--no-sandbox;--ignore-certificate-errors;
+                   --disable-popup-blocking;--disable-default-apps;--disable-extensions-file-access-check;
+                   --incognito;--disable-infobars,--disable-gpu'''
+    #https://github.com/serenity-bdd/serenity-core/issues/1756
+    chrome_options.add_argument("--start-maximized")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--ignore-certificate-errors")
+    chrome_options.add_argument("--disable-popup-blocking")
+    chrome_options.add_argument("--disable-default-apps")
+    chrome_options.add_argument("--disable-extensions-file-access-check")
     chrome_options.add_argument("--incognito")
+    chrome_options.add_argument("--disable-infobars")
+    chrome_options.add_argument("--disable-gpu")
+
+    '''chrome_options.add_argument("--incognito")
     chrome_options.add_argument('--disable-dev-shm-usage')
-    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--disable-gpu')'''
     print('aaaaaaaaaaaaaaaaaaa')
-    driver = None
-    #driver = webdriver.Chrome(service = chrome_service, options=chrome_options) # OK
-    webdriver.Chrome(service = chrome_service, options=chrome_options)
+    driver = webdriver.Chrome(service = chrome_service, options=chrome_options) # OK
     print('bbbbbbbbbbbbb')
     driver.set_window_position(5000, 18000)
     driver.maximize_window()
